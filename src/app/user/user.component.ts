@@ -1,13 +1,7 @@
 import {Component, computed, Input, input, Output, EventEmitter } from '@angular/core';
-
 import { DUMMY_USERS } from './users';
 import {NgOptimizedImage} from '@angular/common';
-
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { User } from './user.model';
 
 @Component({
   selector: 'app-user',

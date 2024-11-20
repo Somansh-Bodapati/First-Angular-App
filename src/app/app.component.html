@@ -4,6 +4,9 @@
     <li *ngFor="let user of users">
       <app-user [user]="user" (select)="onSelectUser($event)"/>
     </li>
-    <app-tasks [name]="selectedUser.name"/>
+    <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser.name"/>
+    <ng-template #fallback>
+      <p id="fallback">Select a user to see their tasks!</p>
+    </ng-template>
   </ul>
 </main>

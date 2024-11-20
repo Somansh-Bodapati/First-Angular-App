@@ -13,6 +13,7 @@ import {NgForOf} from "@angular/common";
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+  @Input({ required:true }) userId?:string;
   @Input({ required:true }) name?: string;
 
   tasks= [
@@ -39,5 +40,8 @@ export class TasksComponent {
     },
   ]
 
+  get selectedUserTasks(){
+    return this.tasks.filter(task => task.userId === this.userId);
+  }
 
 }

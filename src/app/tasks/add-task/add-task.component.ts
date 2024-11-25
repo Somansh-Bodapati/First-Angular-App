@@ -12,11 +12,20 @@ import {FormsModule} from "@angular/forms";
 })
 export class AddTaskComponent {
   @Output() cancel = new EventEmitter<string>();
+  @Output() add = new EventEmitter<{title: string; summary: string; date: string;}>();
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
 
   onCancel(){
     this.cancel.emit();
+  }
+
+  onSubmit(){
+    this.add.emit({
+      title: this.enteredTitle,
+      summary: this.enteredSummary,
+      date: this.enteredDate,
+    });
   }
 }
